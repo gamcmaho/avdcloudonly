@@ -345,7 +345,7 @@ module gethostpooltoken './modules/gethostpooltoken.bicep' = {
   name: 'gethostpooltoken'
   params: {
     location: location
-    hostpool_name: hostpool_name
+    hostpool_name: hostpool.name
   }
 }
 
