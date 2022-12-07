@@ -54,7 +54,7 @@ total_instances
 <br><br>
 az deployment group create -g "&ltresource group name&gt" --template-file "main.bicep" --parameters "parameters.json"
 <br><br>
-Note. The deployment requires input from the user, namely: Username and Password.  These are handled as Secure parameters and should be kept private.  The credentials relate to the Local Admin user on each Session Host.<br><br>
+Note. The deployment requires input from the user, namely: adminUsername and adminPassword.  These are handled as Secure parameters and should be kept private.  The credentials relate to the Local Admin user on each Session Host.
 <br><br>
 <h3>Create a Security Group and Test Users assigned to that group in Azure AD</h3>
 <br>Nb.  Where possible, avoid RBAC assignment to individual Test Users and instead assign to the Security Group.  This will futureproof and enable movers, leavers and joiners.
