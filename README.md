@@ -44,12 +44,17 @@ Then make a note of the Image URL for later reference.  See example Image URL be
 <br><br>
 /subscriptions/&ltsubscription id&gt/resourceGroups/&ltresource group name&gt/providers/Microsoft.Compute/galleries/&ltAzure compute gallery name&gt/images/&ltimage name&gt
 <br><br>
-<h3>Deploy Networking, Security and AVD Hierarchy</h3>
-Change to the "avdcloudonly" directory and modify the "parameters.main.json" providing values for:<br><br>
+<h3>Deploy AVD solution using Azure AD join (Cloud only) scenario</h3>
+Change to the "avdcloudonly" directory and modify the "parameters.json" providing values for:<br><br>
 location<br>
-token_expiration_time
+token_expiration_time<br>
+vm_gallery_image_id<br>
+vm_size<br>
+total_instances
 <br><br>
-az deployment group create -g "&ltresource group name&gt" --template-file "main.bicep" --parameters "parameters.main.json"
+az deployment group create -g "&ltresource group name&gt" --template-file "main.bicep" --parameters "parameters.json"
+<br><br>
+Note. The deployment requires input from the user, namely: Username and Password.  These are handled as Secure parameters and should be kept private.  The credentials relate to the Local Admin user on each Session Host.<br><br>
 <br><br>
 <h3>Create a Security Group and Test Users assigned to that group in Azure AD</h3>
 <br>Nb.  Where possible, avoid RBAC assignment to individual Test Users and instead assign to the Security Group.  This will futureproof and enable movers, leavers and joiners.
@@ -60,19 +65,7 @@ Using the Azure Portal, grant Data RBAC "Virtual Machine Administrator Login" or
 <h3>Grant Desktop Application Group assignment to your Security Group</h3>
 Using Azure Portal, navigate to AVD -> Application Groups -> Desktop Application Group -> Assignments and add your Security Group
 <br><br>
-<h3>Once the main deployment has completed, deploy one or more Session Hosts</h3>
-Modify the "parameters.compute.json" providing values for:<br><br>
-location<br>
-vm_gallery_image_id<br>
-vm_size<br>
-total_instances
-<br><br>
-az deployment group create -g "&ltresource group name&gt" --template-file "compute.bicep" --parameters "parameters.compute.json"
-<br><br>
-Note. The compute deployment requires input from the user, namely: Registration Token, Username and Password.  These are handled as Secure parameters and should be kept private.  The credentials relate to the Local Admin user on each Session Host and the token enables registration to the Host Pool.<br><br>
-For Registration Token, navigate to AVD -> Host Pools -> Registration key, then securely copy and keep private.
-<br><br>
-<h3>Once the compute deployment has completed, prove Test Users can access their persistent desktops</h3>
+<h3>Once the deployment has completed, prove Test Users can access their persistent desktops</h3>
 Navigate to the AVD Web Client URL below:<br><br>
 https://client.wvd.microsoft.com/arm/webclient/index.html
 <br><br>
