@@ -6,7 +6,7 @@
             "value": "<location>"
         },
         "token_expiration_time": {
-            "value": "<token>"
+            "value": "<token expiration date>"
         },
         "vm_gallery_image_id": {
             "value": "<image id>"
