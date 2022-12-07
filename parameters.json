@@ -1,0 +1,72 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "<location>"
+        },
+        "token_expiration_time": {
+            "value": "<token>"
+        },
+        "vm_gallery_image_id": {
+            "value": "<image id>"
+        },
+        "vm_size": {
+            "value": "Standard_D2s_v3"
+        },
+        "vm_prefix": {
+            "value": "vm-rdsh"
+        },
+        "total_instances": {
+            "value": total number of VMs, e.g 3
+        },
+        "bastion_name": {
+            "value": "bastion-avd"
+        },
+        "vnet_hub_name": {
+            "value": "vnet-hub"
+        },
+        "vnet_avd_name": {
+            "value": "vnet-avd"
+        },
+        "azfw_policy_name": {
+            "value": "azfw-policy"
+        },
+        "azfw_name": {
+            "value": "azfw-avd"
+        },
+        "avd_rt_name": {
+            "value": "rt-avd"
+        },
+        "workspace_name": {
+            "value": "ws-avdcloudonly"
+        },
+        "hostpool_name": {
+            "value": "hp-avdcloudonly"
+        },
+        "dag_name": {
+            "value": "dag-avdcloudonly"
+        },
+        "vnet_hub_cidr": {
+            "value": "10.0.0.0/24"
+        },
+        "azfw_subnet_cidr": {
+            "value": "10.0.0.0/26"
+        },
+        "bastion_subnet_cidr": {
+            "value": "10.0.0.64/26"
+        },
+        "vnet_avd_cidr": {
+            "value": "10.2.0.0/24"
+        },
+        "avd_subnet_name": {
+            "value": "snet-avd"
+        },
+        "avd_subnet_cidr": {
+            "value": "10.2.0.0/26"
+        },
+        "modules_url": {
+            "value": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration_10-27-2022.zip"
+        }
+    }
+}
